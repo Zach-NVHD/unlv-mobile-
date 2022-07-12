@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:unlv_ceao_mobile_sign_in/constants.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/admIn_sign_in.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/create_event_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/event_check_in_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/event_info.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/find_event_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/qr_code_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/sign_in_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/welcome_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+class MyObs extends VxObserver {
+  @override
+  void didChangeRoute(Uri route, Page page, String pushOrPop) {
+    print("${route.path} - $pushOrPop");
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -13,13 +28,41 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'UNLV CAEO',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-     
-    );
+        routeInformationParser: VxInformationParser(),
+        title: 'UNLV CAEO',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routerDelegate: VxNavigator(observers: [
+          MyObs()
+        ], routes: {
+          ScreeNames.adminSignIn: (uri, param) {
+            return const MaterialPage(child: AdminSignUpScreen());
+          },
+          ScreeNames.createEvent: (uri, param) {
+            return const MaterialPage(child: CreateEventScreen());
+          },
+          ScreeNames.eventCheckIn: (uri, param) {
+            return const MaterialPage(child: EventCheckInScreen());
+          },
+          ScreeNames.eventInfo: (uri, param) {
+            return const MaterialPage(child: EventInfo());
+          },
+          ScreeNames.findEvent: (uri, param) {
+            return const MaterialPage(child: FindEventScreen());
+          },
+          ScreeNames.qrCodeScreen: (uri, param) {
+            return const MaterialPage(child: QRCodeScreen());
+          },
+          ScreeNames.studentSignInScreen: (uri, param) {
+            return const MaterialPage(child: StudentSignInScreen());
+          },
+          ScreeNames.adminSignIn: (uri, param) {
+            return const MaterialPage(child: AdminSignUpScreen());
+          },
+          ScreeNames.welcome: (uri, param) {
+            return const MaterialPage(child: WelcomeScreen());
+          },
+        }));
   }
 }
-
-
