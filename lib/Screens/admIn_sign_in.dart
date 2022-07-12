@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 
 class AdminSignUpScreen extends StatefulWidget {
   const AdminSignUpScreen({Key? key}) : super(key: key);
@@ -10,6 +11,13 @@ class AdminSignUpScreen extends StatefulWidget {
 class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+ return Scaffold(
+      appBar: UNLVAppBar(),
+      body: ListView(
+        children: [
+          
+        ],
+      ),
+    );
   }
 }
