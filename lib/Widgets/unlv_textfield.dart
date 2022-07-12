@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Textfield extends StatefulWidget {
-  Textfield(
+class UNLVTextfield extends StatefulWidget {
+  UNLVTextfield(
       {Key? key,
       this.controller,
       this.onChanged,
@@ -31,10 +31,10 @@ class Textfield extends StatefulWidget {
   Function(String)? onSumbit;
 
   @override
-  State<Textfield> createState() => _TextfieldState();
+  State<UNLVTextfield> createState() => _UNLVTextfieldState();
 }
 
-class _TextfieldState extends State<Textfield> {
+class _UNLVTextfieldState extends State<UNLVTextfield> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
