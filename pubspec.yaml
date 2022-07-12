@@ -22,6 +22,12 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   material_design_icons_flutter: ^5.0.6996
   velocity_x: ^3.5.1
+  image_picker: ^0.8.5+3
+  permission_handler: ^10.0.0
+  widget_loading: ^0.3.2
+  google_fonts: ^3.0.1
+  url_launcher: ^6.1.4
+  provider: ^6.0.3
   
 
 dev_dependencies:
