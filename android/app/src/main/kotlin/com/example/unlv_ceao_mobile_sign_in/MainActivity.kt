@@ -1,4 +1,4 @@
-package com.unlv.unlv_ceao_mobile_sign_in
+package com.unlv.unlvCeaoMobileSignIn
 
 import io.flutter.embedding.android.FlutterActivity
 

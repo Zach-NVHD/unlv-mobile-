@@ -7,7 +7,7 @@ project(runner LANGUAGES CXX)
 set(BINARY_NAME "unlv_ceao_mobile_sign_in")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.unlv.unlv_ceao_mobile_sign_in")
+set(APPLICATION_ID "com.unlv.unlvCeaoMobileSignIn")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
