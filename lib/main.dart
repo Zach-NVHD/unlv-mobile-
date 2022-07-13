@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/admIn_sign_in.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/create_event_screen.dart';
@@ -10,7 +11,10 @@ import 'package:unlv_ceao_mobile_sign_in/Screens/welcome_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp();
+
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
