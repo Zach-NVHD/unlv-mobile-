@@ -25,7 +25,7 @@ class _UNLVAppBarState extends State<UNLVAppBar> {
     return Scaffold(
         appBar: AppBar(
       title: widget.appBarText,
-      titleTextStyle: TextStyle(fontFamily: ('Times'), fontSize: (20.0)),
+      titleTextStyle: const TextStyle(fontFamily: ('Times'), fontSize: (20.0)),
     ));
   }
 }
