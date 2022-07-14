@@ -29,6 +29,7 @@ class _UNLVButtonState extends State<UNLVButton> {
   Widget build(BuildContext context) {
     return Container(
         color: Constants.unlvRed,
+        padding: EdgeInsets.symmetric(vertical: widget.VerticalPadding!, horizontal: widget.HorizontalPadding!),
         child: SizedBox(
           width: widget.Width,
           height: widget.Height,
