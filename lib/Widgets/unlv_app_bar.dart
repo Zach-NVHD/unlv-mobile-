@@ -1,7 +1,15 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class UNLVAppBar extends StatefulWidget with PreferredSizeWidget {
-  const UNLVAppBar({Key? key}) : super(key: key);
+  UNLVAppBar({Key? key,
+  this.appBarText,
+  })
+  : super(key: key);
+
+
+  Text? appBarText; 
+
   @override
   Size get preferredSize => Size.fromHeight(70);
 
@@ -10,8 +18,14 @@ class UNLVAppBar extends StatefulWidget with PreferredSizeWidget {
 }
 
 class _UNLVAppBarState extends State<UNLVAppBar> {
+  
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        appBar: AppBar(
+      title: widget.appBarText,
+      titleTextStyle: const TextStyle(fontFamily: ('Times'), fontSize: (20.0)),
+    ));
   }
 }

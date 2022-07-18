@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         routeInformationParser: VxInformationParser(),
         title: 'UNLV CAEO',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.red,
         ),
         routerDelegate: VxNavigator(observers: [
           MyObs()
