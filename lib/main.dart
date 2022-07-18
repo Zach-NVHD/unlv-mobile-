@@ -12,7 +12,7 @@ import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 void main() async {
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
