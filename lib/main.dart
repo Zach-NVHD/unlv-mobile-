@@ -40,6 +40,9 @@ class MyApp extends StatelessWidget {
         routerDelegate: VxNavigator(observers: [
           MyObs()
         ], routes: {
+           ScreeNames.welcome: (uri, param) {
+            return const MaterialPage(child: WelcomeScreen());
+          },
           ScreeNames.adminSignIn: (uri, param) {
             return const MaterialPage(child: AdminSignUpScreen());
           },
@@ -64,9 +67,7 @@ class MyApp extends StatelessWidget {
           ScreeNames.adminSignIn: (uri, param) {
             return const MaterialPage(child: AdminSignUpScreen());
           },
-          ScreeNames.welcome: (uri, param) {
-            return const MaterialPage(child: WelcomeScreen());
-          },
+         
         }));
   }
 }
