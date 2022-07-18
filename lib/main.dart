@@ -6,7 +6,7 @@ import 'package:unlv_ceao_mobile_sign_in/Screens/event_check_in_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/event_info.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/find_event_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/qr_code_screen.dart';
-import 'package:unlv_ceao_mobile_sign_in/Screens/sign_in_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/student_sign_in_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/welcome_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
 import 'package:velocity_x/velocity_x.dart';
