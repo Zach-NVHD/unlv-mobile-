@@ -18,6 +18,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Scaffold(
       appBar: UNLVAppBar(
         showBackButton: false,
+        text: 'UNLV Events',
       ),
       body: ListView(
         children: [

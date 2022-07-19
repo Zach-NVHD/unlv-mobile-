@@ -40,6 +40,7 @@ class _UNLVAppBarState extends State<UNLVAppBar> {
           : const SizedBox(),
       title: Constants.heading(
           text: widget.text,
+          color: Colors.white,
           fontSize: widget.fontSize,
           weight: FontWeight.w800),
     ));
