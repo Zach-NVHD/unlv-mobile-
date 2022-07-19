@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
+import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class StudentSignInScreen extends StatefulWidget {
   const StudentSignInScreen({Key? key}) : super(key: key);
@@ -57,7 +59,9 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: studentNum,
           ),
           UNLVButton(
-            ontap: () {},
+            ontap: () {
+              context.vxNav.push(Uri.parse(ScreeNames.findEvent));
+            },
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             text: 'Sign In',
           )
