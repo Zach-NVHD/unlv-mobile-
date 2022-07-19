@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:unlv_ceao_mobile_sign_in/constants.dart';
+import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class UNLVEventTile extends StatefulWidget {
   const UNLVEventTile({Key? key}) : super(key: key);
@@ -17,42 +19,47 @@ class _UNLVEventTileState extends State<UNLVEventTile> {
         horizontal: MediaQuery.of(context).size.width * 0.1,
         vertical: MediaQuery.of(context).size.width * 0.05,
       ),
-      child: Material(
-        elevation: 10,
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          height: MediaQuery.of(context).size.width * 0.65,
-          width: MediaQuery.of(context).size.width * 1.0,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.005),
-              Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                child: Image.asset(
-                  'Images/template_tile_image.png',
-                  width: MediaQuery.of(context).size.width * 1.1,
-                  height: MediaQuery.of(context).size.width * 0.5,
-                  fit: BoxFit.fill,
+      child: GestureDetector(
+        onTap: (){
+          context.vxNav.push(Uri.parse(ScreeNames.eventInfo));
+        },
+        child: Material(
+          elevation: 10,
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            height: MediaQuery.of(context).size.width * 0.65,
+            width: MediaQuery.of(context).size.width * 1.0,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.005),
+                Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                  child: Image.asset(
+                    'Images/template_tile_image.png',
+                    width: MediaQuery.of(context).size.width * 1.1,
+                    height: MediaQuery.of(context).size.width * 0.5,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Constants.heading(text: 'Event A'),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child:
-                    Constants.text(text: 'August 22, 2022 12:00 PM to 2:00 PM'),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Constants.text(text: 'John Doe Middle School'),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Constants.heading(text: 'Event A'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child:
+                      Constants.text(text: 'August 22, 2022 12:00 PM to 2:00 PM'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Constants.text(text: 'John Doe Middle School'),
+                )
+              ],
+            ),
           ),
         ),
       ),
