@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
-
+import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
+import 'package:velocity_x/velocity_x.dart';
 class AdminSignUpScreen extends StatefulWidget {
   const AdminSignUpScreen({Key? key}) : super(key: key);
 
@@ -44,7 +45,11 @@ class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   controller: password,
                 ),
                 UNLVButton(
-                  ontap: () {},
+                  ontap: () {
+                    //temporary to get to create event screen
+                    context.vxNav.push(Uri.parse(ScreeNames.createEvent
+                    ));
+                                      },
                   width: MediaQuery.of(context).size.width,
                   horizontalPadding: MediaQuery.of(context).size.height * 0.025,
                   text: 'Sign In',
