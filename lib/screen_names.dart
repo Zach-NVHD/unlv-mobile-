@@ -9,4 +9,5 @@ class ScreeNames {
   static String qrCodeScreen = '/QrCode';
   static String adminDashboard = '/';
   static String viewEventParticipants = '/Events/Event/Participants';
+  static String studentProfileScreen = '/ProfileScreen';
 }
