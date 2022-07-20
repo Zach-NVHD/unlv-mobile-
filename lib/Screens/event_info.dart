@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/constants.dart';
+import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class EventInfo extends StatefulWidget {
   const EventInfo({Key? key}) : super(key: key);
@@ -85,7 +87,9 @@ Sed mi sem, cursus at sodales id, vestibulum laoreet sem. Nunc tristique imperdi
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.025),
             UNLVButton(
-              ontap: () {},
+              ontap: () {
+                context.vxNav.push(Uri.parse(ScreeNames.qrCodeScreen));
+              },
               text: 'RSVP',
             )
           ],
