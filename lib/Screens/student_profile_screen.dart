@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
-import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -18,13 +17,14 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UNLVAppBar(
-        showBackButton: false,
+        showBackButton: true,
         text: 'Profile Screen',
       ),
       body: ListView(
         children: [
-         UNLVTextfield(
+          UNLVTextfield(
             hintText: 'First Name',
+            isInteractable: false,
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,
@@ -36,7 +36,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,
             borderRadius: 10,
-          
+            isInteractable: false,
           ),
           UNLVTextfield(
             hintText: 'Grade Level',
@@ -44,7 +44,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,
             borderRadius: 10,
-            
+            isInteractable: false,
           ),
           UNLVTextfield(
             hintText: 'Student Number',
@@ -52,14 +52,14 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,
             borderRadius: 10,
-           
+            isInteractable: false,
           ),
           UNLVButton(
             ontap: () {
               context.vxNav.push(Uri.parse(ScreeNames.findEvent));
             },
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
-            text: 'Sign In',
+            text: 'Events Registered For',
           )
         ],
       ),

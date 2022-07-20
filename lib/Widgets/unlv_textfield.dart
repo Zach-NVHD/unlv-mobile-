@@ -13,6 +13,7 @@ class UNLVTextfield extends StatefulWidget {
       this.suffixIcon,
       this.horizontalPadding = 0,
       this.onSumbit,
+      this.isInteractable = true,
       this.borderRadius = 0,
       this.borderWidth = 0})
       : super(key: key);
@@ -20,6 +21,7 @@ class UNLVTextfield extends StatefulWidget {
   TextEditingController? controller;
   double verticalPadding;
   String hintText;
+  bool isInteractable;
   IconData? prefixIcon;
   IconData? suffixIcon;
   double borderWidth;
@@ -48,6 +50,7 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
           shadowColor: Colors.black,
           elevation: 10,
           child: TextField(
+            enabled: widget.isInteractable,
             keyboardType: TextInputType.emailAddress,
             controller: widget.controller,
             onChanged: widget.onChanged,
@@ -55,6 +58,16 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
             obscureText: widget.isObscure,
             decoration: InputDecoration(
               counterText: '',
+              disabledBorder: OutlineInputBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(widget.borderRadius)),
+                borderSide: widget.borderWidth == 0
+                    ? BorderSide.none
+                    : BorderSide(
+                        color: Colors.black,
+                        width: widget.borderWidth,
+                      ),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius:
                     BorderRadius.all(Radius.circular(widget.borderRadius)),
