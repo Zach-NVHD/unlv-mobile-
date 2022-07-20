@@ -1,6 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/admIn_sign_in.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/admin_dashboard_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/admin_view_participants.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/create_event_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/event_check_in_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/event_info.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         routerDelegate: VxNavigator(observers: [
           MyObs()
         ], routes: {
-           ScreeNames.welcome: (uri, param) {
+          ScreeNames.welcome: (uri, param) {
             return const MaterialPage(child: WelcomeScreen());
           },
           ScreeNames.adminSignIn: (uri, param) {
@@ -67,7 +68,12 @@ class MyApp extends StatelessWidget {
           ScreeNames.adminSignIn: (uri, param) {
             return const MaterialPage(child: AdminSignUpScreen());
           },
-         
+          ScreeNames.viewEventParticipants: (uri, param) {
+            return const MaterialPage(child: AdminViewParticipants());
+          },
+          ScreeNames.adminDashboard: (uri, param) {
+            return const MaterialPage(child: AdminDashboardScreen());
+          },
         }));
   }
 }
