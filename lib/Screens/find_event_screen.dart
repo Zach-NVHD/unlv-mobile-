@@ -18,6 +18,7 @@ class _FindEventScreenState extends State<FindEventScreen> {
     return Scaffold(
       appBar: UNLVAppBar(
         text: 'Find Event',
+        showProfilePic: true,
       ),
       body: ListView.builder(
         padding: EdgeInsets.zero,
@@ -42,6 +43,7 @@ class _FindEventScreenState extends State<FindEventScreen> {
                 isActive: true,
                 end: DateTime.now().add(const Duration(hours: 2)),
                 location: 'UNLV Office',
+                title: 'Big Event',
                 description:
                     '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus mauris elit, quis mattis tortor laoreet eu. Suspendisse interdum semper vehicula. Ut bibendum egestas commodo. 
 

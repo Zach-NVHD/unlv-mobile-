@@ -19,6 +19,7 @@ class _EventInfoState extends State<EventInfo> {
     return Scaffold(
       appBar: UNLVAppBar(
         text: 'Event Info',
+        showProfilePic: true,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(

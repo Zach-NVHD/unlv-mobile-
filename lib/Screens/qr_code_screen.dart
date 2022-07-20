@@ -16,6 +16,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
     return Scaffold(
       appBar: UNLVAppBar(
         text: 'Check In',
+        showProfilePic: true,
       ),
       body: ListView(
         children: [
