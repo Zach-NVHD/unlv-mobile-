@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unlv_ceao_mobile_sign_in/Database/Scemas/event.dart';
 import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class UNLVEventTile extends StatefulWidget {
-  const UNLVEventTile({Key? key}) : super(key: key);
+  UNLVEventTile({Key? key, required this.event}) : super(key: key);
 
+  Event event;
   @override
   State<UNLVEventTile> createState() => _UNLVEventTileState();
 }
@@ -38,7 +40,7 @@ class _UNLVEventTileState extends State<UNLVEventTile> {
                 Container(
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                  child: Image.asset(
+                  child:  widget.event.image ?? Image.asset(
                     'Images/template_tile_image.png',
                     width: MediaQuery.of(context).size.width * 1.1,
                     height: MediaQuery.of(context).size.width * 0.5,
@@ -47,16 +49,16 @@ class _UNLVEventTileState extends State<UNLVEventTile> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Constants.heading(text: 'Event A'),
+                  child: Constants.heading(text: widget.event.title),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child:
-                      Constants.text(text: 'August 22, 2022 12:00 PM to 2:00 PM'),
+                      Constants.text(text: widget.event.start.toString()),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Constants.text(text: 'John Doe Middle School'),
+                  child: Constants.text(text: widget.event.location),
                 )
               ],
             ),
