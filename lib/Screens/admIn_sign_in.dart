@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
@@ -29,6 +30,10 @@ class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 UNLVTextfield(
+                  checkIfGood: TextFieldChecks().isEmailGood,
+                  resetUI: () {
+                    setState(() {});
+                  },
                   hintText: 'Email',
                   verticalPadding: MediaQuery.of(context).size.height * 0.025,
                   horizontalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -37,6 +42,10 @@ class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   controller: email,
                 ),
                 UNLVTextfield(
+                  checkIfGood: TextFieldChecks().isPasswordGood,
+                  resetUI: () {
+                    setState(() {});
+                  },
                   hintText: 'Password',
                   verticalPadding: MediaQuery.of(context).size.height * 0.025,
                   horizontalPadding: MediaQuery.of(context).size.height * 0.025,

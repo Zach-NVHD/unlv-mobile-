@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_image_picker.dart';
@@ -29,6 +30,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
         children: [
           UNLVTextfield(
             hintText: 'Title',
+            checkIfGood: TextFieldChecks().isFirstNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,
@@ -37,6 +42,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           ),
           UNLVTextfield(
             hintText: 'Description',
+            checkIfGood: TextFieldChecks().isFirstNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,
@@ -44,11 +53,15 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
             controller: eventDescription,
           ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               //open a selection calendar to pick date
             },
             child: UNLVTextfield(
               hintText: 'Date',
+              checkIfGood: TextFieldChecks().isFirstNameGood,
+              resetUI: () {
+                setState(() {});
+              },
               verticalPadding: MediaQuery.of(context).size.height * 0.025,
               horizontalPadding: MediaQuery.of(context).size.height * 0.025,
               borderWidth: 1,
@@ -61,6 +74,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
             children: [
               UNLVTextfield(
                 hintText: 'Start Time',
+                checkIfGood: TextFieldChecks().isFirstNameGood,
+                resetUI: () {
+                  setState(() {});
+                },
                 width: MediaQuery.of(context).size.width * 0.5,
                 verticalPadding: MediaQuery.of(context).size.height * 0.025,
                 horizontalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -69,6 +86,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 controller: startTime,
               ),
               UNLVTextfield(
+                checkIfGood: TextFieldChecks().isFirstNameGood,
+                resetUI: () {
+                  setState(() {});
+                },
                 hintText: 'End Time',
                 width: MediaQuery.of(context).size.width * 0.5,
                 verticalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -81,6 +102,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           ),
           UNLVTextfield(
             hintText: 'Location',
+            checkIfGood: TextFieldChecks().isFirstNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
             borderWidth: 1,

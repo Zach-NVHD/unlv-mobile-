@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
@@ -27,6 +28,10 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
       body: ListView(
         children: [
           UNLVTextfield(
+            checkIfGood: TextFieldChecks().isFirstNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             hintText: 'First Name',
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -35,6 +40,10 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: firstName,
           ),
           UNLVTextfield(
+            checkIfGood: TextFieldChecks().isLastNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             hintText: 'Last Name',
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -43,6 +52,10 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: lastName,
           ),
           UNLVTextfield(
+            checkIfGood: TextFieldChecks().isFirstNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             hintText: 'Grade Level',
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -51,6 +64,10 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: gradeLevel,
           ),
           UNLVTextfield(
+            checkIfGood: TextFieldChecks().isFirstNameGood,
+            resetUI: () {
+              setState(() {});
+            },
             hintText: 'Student Number',
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,

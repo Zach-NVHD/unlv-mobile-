@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:unlv_ceao_mobile_sign_in/Database/Scemas/event.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_event_tile.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
@@ -26,6 +27,10 @@ class _FindEventScreenState extends State<FindEventScreen> {
         itemBuilder: (context, index) {
           if (index == 0) {
             return UNLVTextfield(
+              checkIfGood: TextFieldChecks().alwaysGood,
+              resetUI: () {
+                setState(() {});
+              },
               hintText: 'Search...',
               verticalPadding: MediaQuery.of(context).size.height * 0.025,
               horizontalPadding: MediaQuery.of(context).size.height * 0.025,

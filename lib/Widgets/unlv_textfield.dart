@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class UNLVTextfield extends StatefulWidget {
   UNLVTextfield(
       {Key? key,
+      required this.checkIfGood,
+      required this.resetUI,
       this.controller,
       this.onChanged,
       this.isObscure = false,
@@ -31,12 +33,15 @@ class UNLVTextfield extends StatefulWidget {
   double horizontalPadding;
   Function(String)? onChanged;
   Function(String)? onSumbit;
+  VoidCallback resetUI;
+  Function(String) checkIfGood;
 
   @override
   State<UNLVTextfield> createState() => _UNLVTextfieldState();
 }
 
 class _UNLVTextfieldState extends State<UNLVTextfield> {
+  bool isComplete = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -53,7 +58,15 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
             enabled: widget.isInteractable,
             keyboardType: TextInputType.emailAddress,
             controller: widget.controller,
-            onChanged: widget.onChanged,
+            onChanged: (text) {
+              if (widget.onChanged != null) {
+                widget.onChanged!(text);
+              }
+              setState(() {
+                isComplete = widget.checkIfGood(text);
+              });
+              widget.resetUI();
+            },
             maxLength: 1000,
             obscureText: widget.isObscure,
             decoration: InputDecoration(
