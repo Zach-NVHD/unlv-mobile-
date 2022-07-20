@@ -43,6 +43,9 @@ flutter:
   assets:
     - Images/
 
-
+  fonts:
+    - family: MyFlutterApp
+      fonts:
+        - asset: Fonts/MyFlutterApp.ttf
   uses-material-design: true
 
