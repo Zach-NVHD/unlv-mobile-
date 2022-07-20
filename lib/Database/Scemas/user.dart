@@ -1,21 +1,25 @@
-import 'dart:convert';
-
 class User {
-  User({this.first = '', this.last = '', this.gradeLevel = 0, this.major = ''});
+  User(
+      {this.first = '',
+      this.last = '',
+      this.gradeLevel = 0,
+      this.major = '',
+      this.docId = ''});
 
   String first;
   String last;
   int gradeLevel;
   String major;
+  String docId;
 
-  String toJson() {
+  Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
       'first': first,
       'last': last,
       'gradeLevel': gradeLevel,
       'major': major
     };
-    return jsonEncode(map);
+    return map;
   }
 
   void fromJson(Map<String, dynamic> map) {
@@ -32,6 +36,7 @@ class User {
     last : $last,
     gradeLevel : $gradeLevel,
     major : $major
+    docId : $docId
 ''';
   }
 }

@@ -10,6 +10,7 @@ class Event {
       required this.start,
       required this.end,
       this.imageUrl = '',
+      this.docId = '',
       this.isActive = false,
       this.location = ''});
 
@@ -21,8 +22,9 @@ class Event {
   String imageUrl;
   Image? image;
   bool isActive;
+  String docId;
 
-  String toJson() {
+Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
       'title': title,
       'description': description,
@@ -30,9 +32,9 @@ class Event {
       'end': Timestamp.fromDate(end),
       'location': location,
       'isActive': isActive,
-      'imageUrl': imageUrl
+      'imageUrl': imageUrl,
     };
-    return jsonEncode(map);
+    return map;
   }
 
   void fromJson(Map<String, dynamic> map) {
@@ -43,6 +45,7 @@ class Event {
     location = map['location'] ?? '';
     isActive = map['isActive'] ?? false;
     imageUrl = map['imageUrl'] ?? '';
+    
   }
 
   @override
@@ -55,7 +58,8 @@ class Event {
     location: $location,
     imageUrl: $imageUrl
     isActive: $isActive
-    image: $image
+    image: $image,
+    docId : $docId
 ''';
   }
 }
