@@ -6,8 +6,7 @@ class ScreeNames {
   static String findEvent = '/Events';
   static String welcome = '/1';
   static String studentSignInScreen = '/StudentSignIn';
-  static String qrCodeScreen = '/';
-  static String adminDashboard = '/AdminDashboard';
+  static String qrCodeScreen = '/QrCode';
+  static String adminDashboard = '/';
   static String viewEventParticipants = '/Events/Event/Participants';
-
 }
