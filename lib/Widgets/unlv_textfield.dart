@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 
 class UNLVTextfield extends StatefulWidget {
   UNLVTextfield(
@@ -52,7 +54,7 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
             horizontal: widget.horizontalPadding),
         child: Material(
           borderRadius: BorderRadius.all(Radius.circular(50)),
-          shadowColor: Colors.black,
+          shadowColor: isComplete ? Constants.unlvRed : Colors.black,
           elevation: 10,
           child: TextField(
             enabled: widget.isInteractable,
@@ -64,6 +66,7 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
               }
               setState(() {
                 isComplete = widget.checkIfGood(text);
+                print(isComplete);
               });
               widget.resetUI();
             },
@@ -77,8 +80,8 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
                 borderSide: widget.borderWidth == 0
                     ? BorderSide.none
                     : BorderSide(
-                        color: Colors.black,
-                        width: widget.borderWidth,
+                        color: isComplete ? Constants.unlvRed : Colors.black,
+                        width: isComplete ? 2 : widget.borderWidth,
                       ),
               ),
               enabledBorder: OutlineInputBorder(
@@ -87,16 +90,16 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
                 borderSide: widget.borderWidth == 0
                     ? BorderSide.none
                     : BorderSide(
-                        color: Colors.black,
-                        width: widget.borderWidth,
+                        color: isComplete ? Constants.unlvRed : Colors.black,
+                        width: isComplete ? 2 : widget.borderWidth,
                       ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius:
                     BorderRadius.all(Radius.circular(widget.borderRadius)),
                 borderSide: BorderSide(
-                  color: Colors.black,
-                  width: widget.borderWidth,
+                  color: isComplete ? Constants.unlvRed : Colors.black,
+                  width: isComplete ? 2 : widget.borderWidth,
                 ),
               ),
               fillColor: Colors.white,
@@ -110,8 +113,9 @@ class _UNLVTextfieldState extends State<UNLVTextfield> {
                       color: Colors.grey,
                     ),
               suffixIcon: Icon(
-                widget.suffixIcon,
-                color: Colors.grey,
+                isComplete ? MdiIcons.check : widget.suffixIcon,
+                size: 35,
+                color: isComplete ? Constants.unlvRed : Colors.grey,
               ),
             ),
           ),
