@@ -3,9 +3,9 @@ import 'package:unlv_ceao_mobile_sign_in/Screens/admIn_sign_in.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/admin_dashboard_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/admin_view_participants.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/create_event_screen.dart';
-import 'package:unlv_ceao_mobile_sign_in/Screens/event_check_in_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/event_info.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/find_event_screen.dart';
+import 'package:unlv_ceao_mobile_sign_in/Screens/qr_code_scanner.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/qr_code_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/student_profile_screen.dart';
 import 'package:unlv_ceao_mobile_sign_in/Screens/student_sign_in_screen.dart';
@@ -51,8 +51,8 @@ class MyApp extends StatelessWidget {
           ScreeNames.createEvent: (uri, param) {
             return const MaterialPage(child: CreateEventScreen());
           },
-          ScreeNames.eventCheckIn: (uri, param) {
-            return const MaterialPage(child: EventCheckInScreen());
+          ScreeNames.qrCodeScanner: (uri, param) {
+            return const MaterialPage(child: QRCodeScanner());
           },
           ScreeNames.eventInfo: (uri, param) {
             return const MaterialPage(child: EventInfo());
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
           ScreeNames.adminDashboard: (uri, param) {
             return const MaterialPage(child: AdminDashboardScreen());
           },
-           ScreeNames.studentProfileScreen: (uri, param) {
+          ScreeNames.studentProfileScreen: (uri, param) {
             return const MaterialPage(child: StudentProfileScreen());
           },
         }));

@@ -1,7 +1,7 @@
 class ScreeNames {
   static String adminSignIn = '/AdminSignIn';
   static String createEvent = '/CreateEvent';
-  static String eventCheckIn = '/EventCheckIn';
+  static String qrCodeScanner = '/EventCheckIn';
   static String eventInfo = '/Events/Event';
   static String findEvent = '/Events';
   static String welcome = '/';

@@ -52,6 +52,16 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             text: 'Create an Event',
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
+          ),
+
+          UNLVButton(
+            isClickable: true,
+            ontap: () {
+              context.vxNav.push(Uri.parse(ScreeNames.qrCodeScanner));
+            },
+            text: 'QR Code Scanner',
+            verticalPadding: MediaQuery.of(context).size.height * 0.025,
+            horizontalPadding: MediaQuery.of(context).size.height * 0.025,
           )
         ],
       ),
