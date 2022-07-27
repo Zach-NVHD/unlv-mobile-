@@ -6,13 +6,13 @@ import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class UNLVAppBar extends StatefulWidget with PreferredSizeWidget {
-  UNLVAppBar({
-    Key? key,
-    this.fontSize = 20,
-    this.text = '',
-    this.showBackButton = true,
-    this.showProfilePic = false
-  }) : super(key: key);
+  UNLVAppBar(
+      {Key? key,
+      this.fontSize = 20,
+      this.text = '',
+      this.showBackButton = true,
+      this.showProfilePic = false})
+      : super(key: key);
 
   String text;
   double fontSize;
@@ -34,7 +34,12 @@ class _UNLVAppBarState extends State<UNLVAppBar> {
       foregroundColor: Constants.unlvRed,
       backgroundColor: Constants.unlvRed,
       actions: [
-        widget.showProfilePic ? const UNLVProfileButton() : const SizedBox()
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: widget.showProfilePic
+              ? const UNLVProfileButton()
+              : const SizedBox(),
+        )
       ],
       leading: widget.showBackButton
           ? GestureDetector(
