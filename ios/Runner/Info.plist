@@ -5,7 +5,12 @@
 <key>io.flutter.embedded_views_preview</key>
 <true/>
 <key>NSCameraUsageDescription</key>
-<string>This app needs camera access to scan QR codes</string>
+	<string>Allow access to camera to capture photos and use QR Code Scanner</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow access to microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to photos for you to be able to upload photos of events</string>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

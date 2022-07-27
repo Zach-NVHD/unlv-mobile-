@@ -1,11 +1,7 @@
-
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class QRCodeScanner extends StatefulWidget {
   const QRCodeScanner({Key? key}) : super(key: key);
@@ -47,8 +43,7 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
           Expanded(
             flex: 1,
             child: Center(
-              child: 
-                  Text('Scan a code'),
+              child: Text('Scan a code'),
             ),
           )
         ],
@@ -59,8 +54,6 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
-      
-  
       setState(() {
         result = scanData;
       });
