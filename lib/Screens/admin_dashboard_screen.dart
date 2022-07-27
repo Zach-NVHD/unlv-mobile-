@@ -36,14 +36,16 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             height: MediaQuery.of(context).size.height * 0.25,
           ),
           UNLVButton(
+            isClickable: true,
             ontap: () {
-               context.vxNav.push(Uri.parse(ScreeNames.findEvent));
+              context.vxNav.push(Uri.parse(ScreeNames.findEvent));
             },
             text: 'Event Dashboard',
             verticalPadding: MediaQuery.of(context).size.height * 0.025,
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
           ),
           UNLVButton(
+            isClickable: true,
             ontap: () {
               context.vxNav.push(Uri.parse(ScreeNames.createEvent));
             },

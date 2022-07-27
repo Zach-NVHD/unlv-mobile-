@@ -3,6 +3,7 @@ import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
+import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -29,6 +30,10 @@ class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Constants.text(
+                    text:
+                        'Passwods must include:\n 1 Uppercase Letter\n1 Lowercase Letter\n1 Number\n1 Special Character\nBe longer than 6 Characters',
+                    fontSize: 20),
                 UNLVTextfield(
                   checkIfGood: TextFieldChecks().isEmailGood,
                   resetUI: () {
@@ -55,6 +60,9 @@ class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   controller: password,
                 ),
                 UNLVButton(
+                  isClickable: true,
+                  // TextFieldChecks().isEmailGood(email.text) &&
+                  //     TextFieldChecks().isPasswordGood(password.text),
                   ontap: () {
                     //temporary to get to create event screen
                     context.vxNav.push(Uri.parse(ScreeNames.adminDashboard));

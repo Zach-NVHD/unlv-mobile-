@@ -88,6 +88,7 @@ Sed mi sem, cursus at sodales id, vestibulum laoreet sem. Nunc tristique imperdi
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.025),
             UNLVButton(
+              isClickable: true,
               ontap: () {
                 context.vxNav.push(Uri.parse(ScreeNames.qrCodeScreen));
               },

@@ -58,7 +58,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
             },
             child: UNLVTextfield(
               hintText: 'Date',
-              checkIfGood: TextFieldChecks().isFirstNameGood,
+              checkIfGood: TextFieldChecks().alwaysGood,
               resetUI: () {
                 setState(() {});
               },
@@ -67,14 +67,14 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
               borderWidth: 1,
               borderRadius: 10,
               suffixIcon: MdiIcons.calendar,
-              controller: location,
+              // controller: location,
             ),
           ),
           Row(
             children: [
               UNLVTextfield(
-                hintText: 'Start Time',
-                checkIfGood: TextFieldChecks().isFirstNameGood,
+                hintText: '(hh:mm AM/PM)',
+                checkIfGood: TextFieldChecks().isTimeGood,
                 resetUI: () {
                   setState(() {});
                 },
@@ -86,11 +86,11 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                 controller: startTime,
               ),
               UNLVTextfield(
-                checkIfGood: TextFieldChecks().isFirstNameGood,
+                checkIfGood: TextFieldChecks().isTimeGood,
                 resetUI: () {
                   setState(() {});
                 },
-                hintText: 'End Time',
+                hintText: '(hh:mm AM/PM)',
                 width: MediaQuery.of(context).size.width * 0.5,
                 verticalPadding: MediaQuery.of(context).size.height * 0.025,
                 horizontalPadding: MediaQuery.of(context).size.height * 0.025,
@@ -114,6 +114,9 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           ),
           UNLVImagePicker(),
           UNLVButton(
+            isClickable: TextFieldChecks().isFirstNameGood(eventName.text) &&
+                TextFieldChecks().isFirstNameGood(eventDescription.text) &&
+                TextFieldChecks().isFirstNameGood(location.text),
             ontap: () {},
             text: 'Create',
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,

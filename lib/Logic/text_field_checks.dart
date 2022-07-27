@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 class TextFieldChecks {
   List<String> letters = [
     'a',
@@ -203,6 +204,17 @@ class TextFieldChecks {
     }
 
     return isGood;
+  }
+
+  bool isTimeGood(String text){
+try {
+var dateTime2 = DateFormat('hh:mm a').parse(text);
+print(dateTime2);
+  return true;
+}
+catch (e) {
+  return false;
+}
   }
 
   bool containsAnythingButNumbers(String text) {
