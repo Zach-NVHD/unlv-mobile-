@@ -260,6 +260,10 @@ catch (e) {
         text.length > 6;
   }
 
+  bool isDateNotNull(DateTime? date) {
+    return date != null;
+  }
+
   bool ifIsAllBlanks(String text) {
     if (text.replaceAll(' ', '').isEmpty) {
       return false;

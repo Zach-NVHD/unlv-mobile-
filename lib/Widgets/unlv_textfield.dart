@@ -18,6 +18,7 @@ class UNLVTextfield extends StatefulWidget {
       this.horizontalPadding = 0,
       this.onSumbit,
       this.maxLines = 1,
+      this.isCompleteOveride,
       this.isInteractable = true,
       this.borderRadius = 0,
       this.borderWidth = 0})
@@ -39,15 +40,20 @@ class UNLVTextfield extends StatefulWidget {
   Function(String)? onSumbit;
   VoidCallback resetUI;
   Function(String) checkIfGood;
+  bool? isCompleteOveride;  
 
   @override
   State<UNLVTextfield> createState() => _UNLVTextfieldState();
 }
 
 class _UNLVTextfieldState extends State<UNLVTextfield> {
+  
   bool isComplete = false;
   @override
   Widget build(BuildContext context) {
+    if(widget.isCompleteOveride != null){
+      isComplete = widget.isCompleteOveride!;
+    }
     return SizedBox(
       width: widget.width,
       child: Padding(
