@@ -42,6 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         UNLVButton(
+                          isClickable: true,
                           ontap: () {
                             context.vxNav
                                 .push(Uri.parse(ScreeNames.adminSignIn));
@@ -50,6 +51,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           verticalPadding: 20,
                         ),
                         UNLVButton(
+                          isClickable: true,
                           ontap: () {
                             context.vxNav.push(
                                 Uri.parse(ScreeNames.studentSignInScreen));

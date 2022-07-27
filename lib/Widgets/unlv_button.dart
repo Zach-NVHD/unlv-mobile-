@@ -12,6 +12,7 @@ class UNLVButton extends StatefulWidget {
       this.horizontalPadding,
       this.verticalPadding,
       this.fontSize = 20,
+      this.isClickable = false,
       this.borderRadius = 10})
       : super(key: key);
 
@@ -25,6 +26,7 @@ class UNLVButton extends StatefulWidget {
   double? buttonHorizontalPadding;
   double borderRadius;
   double fontSize;
+  bool isClickable;
 
   @override
   State<UNLVButton> createState() => _UNLVButtonState();
@@ -39,7 +41,9 @@ class _UNLVButtonState extends State<UNLVButton> {
           horizontal: widget.horizontalPadding ?? 0),
       child: Container(
           decoration: BoxDecoration(
-              color: Constants.unlvRed,
+              color: widget.isClickable == false
+                  ? Colors.grey[400]
+                  : Constants.unlvRed,
               borderRadius: BorderRadius.circular(widget.borderRadius)),
           child: SizedBox(
               width: widget.width,
@@ -49,7 +53,7 @@ class _UNLVButtonState extends State<UNLVButton> {
                     vertical: widget.buttonVerticalPadding ?? 0,
                     horizontal: widget.buttonHorizontalPadding ?? 0),
                 child: TextButton(
-                  onPressed: widget.ontap,
+                  onPressed: widget.isClickable == false ? null : widget.ontap,
                   child: Constants.text(
                       text: widget.text ?? '',
                       color: Colors.white,

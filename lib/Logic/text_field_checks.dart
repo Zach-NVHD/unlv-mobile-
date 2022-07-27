@@ -170,23 +170,23 @@ class TextFieldChecks {
   ];
 
   bool isFirstNameGood(String text) {
-    bool isGood = isEmptySpaces(text);
+    bool isGood = ifIsAllBlanks(text);
 
     return isGood;
   }
 
-  bool alwaysGood(String text){
+  bool alwaysGood(String text) {
     return true;
   }
 
   bool isLastNameGood(String text) {
-    bool isGood = isEmptySpaces(text);
+    bool isGood = ifIsAllBlanks(text);
 
     return isGood;
   }
 
   bool isEmailGood(String text) {
-    bool isGood = isEmptySpaces(text);
+    bool isGood = ifIsAllBlanks(text);
     if (isGood == false) {
       return false;
     }
@@ -203,6 +203,20 @@ class TextFieldChecks {
     }
 
     return isGood;
+  }
+
+  bool containsAnythingButNumbers(String text) {
+    if(ifIsAllBlanks(text) == false){
+      return false;
+    }
+    for (int i = 0; i < text.length; i++) {
+      if (uppercaseLetters.contains(text[i]) ||
+          lowercaseLetters.contains(text[i]) ||
+          specialCharacters.contains(text[i])) {
+        return false;
+      }
+    }
+    return true;
   }
 
   bool isPasswordGood(String text) {
@@ -234,9 +248,7 @@ class TextFieldChecks {
         text.length > 6;
   }
 
-  
-
-  bool isEmptySpaces(String text) {
+  bool ifIsAllBlanks(String text) {
     if (text.replaceAll(' ', '').isEmpty) {
       return false;
     }

@@ -52,7 +52,7 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: lastName,
           ),
           UNLVTextfield(
-            checkIfGood: TextFieldChecks().isFirstNameGood,
+            checkIfGood: TextFieldChecks().containsAnythingButNumbers,
             resetUI: () {
               setState(() {});
             },
@@ -64,7 +64,7 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: gradeLevel,
           ),
           UNLVTextfield(
-            checkIfGood: TextFieldChecks().isFirstNameGood,
+            checkIfGood: TextFieldChecks().containsAnythingButNumbers,
             resetUI: () {
               setState(() {});
             },
@@ -76,6 +76,12 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             controller: studentNum,
           ),
           UNLVButton(
+            isClickable: true,
+            // TextFieldChecks()
+            //         .containsAnythingButNumbers(gradeLevel.text) &&
+            //     TextFieldChecks().containsAnythingButNumbers(studentNum.text) &&
+            //     TextFieldChecks().isFirstNameGood(firstName.text) &&
+            //     TextFieldChecks().isFirstNameGood(lastName.text),
             ontap: () {
               context.vxNav.push(Uri.parse(ScreeNames.findEvent));
             },
