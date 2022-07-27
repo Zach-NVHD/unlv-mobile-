@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: 1.0.5
   dio: ^4.0.6
   firebase_auth: 2.0.0
   cloud_firestore: 1.0.7
@@ -29,6 +29,8 @@ dependencies:
   provider: ^6.0.3
   pretty_qr_code: ^2.0.2
   qr_code_scanner: 0.5.1
+  flutter_svg: ^1.0.3
+
   
 
 dev_dependencies:
@@ -39,12 +41,17 @@ dev_dependencies:
 
 
 flutter:
+  uses-material-design: true
   assets:
     - Images/
+    - svgs/
 
-  fonts:
-    - family: MyFlutterApp
-      fonts:
-        - asset: Fonts/MyFlutterApp.ttf
-  uses-material-design: true
+  # fonts:
+  #   - family: MyFlutterApp
+  #     fonts:
+  #       - asset: assests/MyFlutterApp.ttf
+    # - family: BaseIcons
+    #   fonts:
+    #     - asset: Fonts/BaseIcons.ttf
+  
 

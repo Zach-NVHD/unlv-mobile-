@@ -55,8 +55,14 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           GestureDetector(
             onTap: () {
               //open a selection calendar to pick date
+              showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime.now().subtract(Duration(days: 1)),
+                  lastDate: DateTime.now().add(Duration(days: 10000)));
             },
             child: UNLVTextfield(
+              isInteractable: false,
               hintText: 'Date',
               checkIfGood: TextFieldChecks().alwaysGood,
               resetUI: () {
