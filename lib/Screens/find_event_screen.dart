@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:unlv_ceao_mobile_sign_in/Database/Scemas/event.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/event_brain.dart';
 import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_event_tile.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
+import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 
 class FindEventScreen extends StatefulWidget {
   const FindEventScreen({Key? key}) : super(key: key);
@@ -14,6 +16,8 @@ class FindEventScreen extends StatefulWidget {
 }
 
 class _FindEventScreenState extends State<FindEventScreen> {
+  String searchText = '';
+  List<Event> events = Constants().events;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +27,7 @@ class _FindEventScreenState extends State<FindEventScreen> {
       ),
       body: ListView.builder(
         padding: EdgeInsets.zero,
-        itemCount: 20,
+        itemCount: EventBrain.findEvents(searchText, events).length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return UNLVTextfield(
@@ -38,23 +42,13 @@ class _FindEventScreenState extends State<FindEventScreen> {
               suffixIcon: MdiIcons.magnify,
               borderRadius: 10,
               onChanged: (text) {
+                searchText = text;
                 //search
               },
             );
           }
           return UNLVEventTile(
-            event: Event(
-                start: DateTime.now(),
-                isActive: true,
-                end: DateTime.now().add(const Duration(hours: 2)),
-                location: 'UNLV Office',
-                title: 'Big Event',
-                description:
-                    '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus mauris elit, quis mattis tortor laoreet eu. Suspendisse interdum semper vehicula. Ut bibendum egestas commodo. 
-
-Donec nec quam sit amet augue molestie vehicula a sit amet nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sed semper orci, eget ullamcorper dolor. 
-
-Sed mi sem, cursus at sodales id, vestibulum laoreet sem. Nunc tristique imperdiet tortor at efficitur. Vestibulum id posuere neque, quis commodo nunc. Proin quis tempus erat. Fusce auctor viverra nibh, sit amet molestie mauris sollicitudin sed. Duis cursus diam vel nulla commodo eleifend. Orci varius natoque penatibus et magnis dis parturient.'''),
+            event: EventBrain.findEvents(searchText, events)[index - 1],
           );
         },
       ),
