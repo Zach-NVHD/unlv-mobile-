@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:unlv_ceao_mobile_sign_in/Database/Scemas/event.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/authentication_brain.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/constants.dart';
@@ -84,13 +85,35 @@ class _EventInfoState extends State<EventInfo> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-            UNLVButton(
-              isClickable: true,
-              ontap: () {
-                context.vxNav.push(Uri.parse(ScreeNames.qrCodeScreen));
-              },
-              text: 'RSVP',
-            )
+            widget.event.isActive == true
+                ? const SizedBox()
+                : UNLVButton(
+                    isClickable: true,
+                    ontap: () {},
+                    text: 'Make Event Live',
+                  ),
+            SizedBox(
+                height: widget.event.isActive == true
+                    ? 0
+                    : MediaQuery.of(context).size.height * 0.025),
+            Authentication.isAdmin == false
+                ? const SizedBox()
+                : UNLVButton(
+                    isClickable: true,
+                    ontap: () {
+                      context.vxNav.push(Uri.parse(ScreeNames.qrCodeScreen));
+                    },
+                    text: 'See Participants',
+                  ),
+            Authentication.isAdmin
+                ? const SizedBox()
+                : UNLVButton(
+                    isClickable: true,
+                    ontap: () {
+                      context.vxNav.push(Uri.parse(ScreeNames.qrCodeScreen));
+                    },
+                    text: 'RSVP',
+                  )
           ],
         ),
       ),
