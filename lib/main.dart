@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
             return const MaterialPage(child: AdminSignUpScreen());
           },
           ScreeNames.viewEventParticipants: (uri, param) {
-            return const MaterialPage(child: AdminViewParticipants());
+            return MaterialPage(child: AdminViewParticipants(event: param['event'],));
           },
           ScreeNames.adminDashboard: (uri, param) {
             return const MaterialPage(child: AdminDashboardScreen());

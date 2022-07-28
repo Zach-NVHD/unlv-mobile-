@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:unlv_ceao_mobile_sign_in/Database/Scemas/event.dart';
+import 'package:unlv_ceao_mobile_sign_in/Database/Scemas/user.dart';
 
 String templateText =
     '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus mauris elit, quis mattis tortor laoreet eu. Suspendisse interdum semper vehicula. Ut bibendum egestas commodo. 
@@ -56,7 +57,22 @@ class Constants {
         description: templateText,
         title: 'Test Event 1',
         isActive: true,
-        location: '123 Seamse Street Las Vegas NV'),
+        location: '123 Seamse Street Las Vegas NV',
+        participants: [
+          User(
+              first: 'Timmy',
+              last: 'Jim',
+              gradeLevel: 11,
+              major: 'Computer Science'),
+          User(
+              first: 'Tammy', last: 'Glad', gradeLevel: 11, major: 'Chemistry'),
+          User(
+              first: 'Charles',
+              last: 'Darwin',
+              gradeLevel: 11,
+              major: 'Undecided'),
+          User(first: 'Jack', last: 'Hue', gradeLevel: 11, major: 'Undecided'),
+        ]),
     Event(
         start: DateTime(2022, 9, 24, 9, 30),
         end: DateTime(2022, 9, 24, 11, 30),

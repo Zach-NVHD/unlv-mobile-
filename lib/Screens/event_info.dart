@@ -101,7 +101,9 @@ class _EventInfoState extends State<EventInfo> {
                 : UNLVButton(
                     isClickable: true,
                     ontap: () {
-                      context.vxNav.push(Uri.parse(ScreeNames.qrCodeScreen));
+                      context.vxNav.push(
+                          Uri.parse(ScreeNames.viewEventParticipants),
+                          params: {'event': widget.event});
                     },
                     text: 'See Participants',
                   ),
