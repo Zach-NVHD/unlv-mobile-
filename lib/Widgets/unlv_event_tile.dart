@@ -24,7 +24,8 @@ class _UNLVEventTileState extends State<UNLVEventTile> {
         ),
         child: GestureDetector(
           onTap: () {
-            context.vxNav.push(Uri.parse(ScreeNames.eventInfo));
+            context.vxNav.push(Uri.parse(ScreeNames.eventInfo),
+                params: {'event': widget.event});
           },
           child: Material(
             elevation: 10,
@@ -67,18 +68,22 @@ class _UNLVEventTileState extends State<UNLVEventTile> {
           ),
         ),
       ),
-    widget.event.isActive ? const SizedBox() : Positioned.fill(
-          child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.1,
-          vertical: MediaQuery.of(context).size.width * 0.05,
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.grey[200]!.withOpacity(0.4),
-              borderRadius: BorderRadius.circular(10)),
-        ),
-      )),
+      widget.event.isActive
+          ? const SizedBox()
+          : Positioned.fill(
+              child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.1,
+                vertical: MediaQuery.of(context).size.width * 0.05,
+              ),
+              child: IgnorePointer(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200]!.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+              ),
+            )),
     ]);
   }
 }

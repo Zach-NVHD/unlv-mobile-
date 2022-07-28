@@ -1,7 +1,6 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Event {
   Event(
@@ -24,7 +23,7 @@ class Event {
   bool isActive;
   String docId;
 
-Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
       'title': title,
       'description': description,
@@ -45,7 +44,19 @@ Map<String, dynamic> toJson() {
     location = map['location'] ?? '';
     isActive = map['isActive'] ?? false;
     imageUrl = map['imageUrl'] ?? '';
-    
+  }
+
+  String dateString(){
+     final DateFormat formatter = DateFormat('MMMM dd, yyyy');
+  final String formatted = formatter.format(start);
+    return formatted;
+  }
+
+  String timeString(){
+         final DateFormat formatter = DateFormat('hh:mm a');
+  final String startString = formatter.format(start);
+    final String endString = formatter.format(end);
+    return startString + ' - ' + endString;
   }
 
   @override

@@ -55,7 +55,10 @@ class MyApp extends StatelessWidget {
             return const MaterialPage(child: QRCodeScanner());
           },
           ScreeNames.eventInfo: (uri, param) {
-            return const MaterialPage(child: EventInfo());
+
+            return  MaterialPage(child: EventInfo(
+              event: param['event'],
+            ));
           },
           ScreeNames.findEvent: (uri, param) {
             return const MaterialPage(child: FindEventScreen());
