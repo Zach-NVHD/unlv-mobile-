@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlv_ceao_mobile_sign_in/Logic/authentication_brain.dart';
 import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
@@ -64,6 +65,7 @@ class _AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   // TextFieldChecks().isEmailGood(email.text) &&
                   //     TextFieldChecks().isPasswordGood(password.text),
                   ontap: () {
+                    Authentication.isAdmin = true;
                     //temporary to get to create event screen
                     context.vxNav.push(Uri.parse(ScreeNames.adminDashboard));
                   },

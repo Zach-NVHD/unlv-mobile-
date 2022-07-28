@@ -1,32 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:unlv_ceao_mobile_sign_in/Logic/authentication_brain.dart';
 import 'package:unlv_ceao_mobile_sign_in/Logic/text_field_checks.dart';
-import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_app_bar.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_button.dart';
 import 'package:unlv_ceao_mobile_sign_in/Widgets/unlv_textfield.dart';
-import 'package:unlv_ceao_mobile_sign_in/screen_names.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:unlv_ceao_mobile_sign_in/constants.dart';
 
-class StudentSignInScreen extends StatefulWidget {
-  const StudentSignInScreen({Key? key}) : super(key: key);
+class UNLVManualAddPopUp extends StatefulWidget {
+  const UNLVManualAddPopUp({Key? key}) : super(key: key);
 
+void showPopUp(BuildContext context) async {
+    showDialog(context: context, builder: (context) => UNLVManualAddPopUp());
+  }
   @override
-  State<StudentSignInScreen> createState() => _StudentSignInScreenState();
+  State<UNLVManualAddPopUp> createState() => _UNLVManualAddPopUpState();
 }
 
-class _StudentSignInScreenState extends State<StudentSignInScreen> {
+class _UNLVManualAddPopUpState extends State<UNLVManualAddPopUp> {
   TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
   TextEditingController gradeLevel = TextEditingController();
   TextEditingController studentNum = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: UNLVAppBar(
-        text: 'Student Sign In',
-      ),
-      body: ListView(
+    return AlertDialog(
+      title: Constants.heading(text: 'Manually Add Participant'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           UNLVTextfield(
             checkIfGood: TextFieldChecks().isFirstNameGood,
@@ -84,14 +82,14 @@ class _StudentSignInScreenState extends State<StudentSignInScreen> {
             //     TextFieldChecks().isFirstNameGood(firstName.text) &&
             //     TextFieldChecks().isFirstNameGood(lastName.text),
             ontap: () {
-              Authentication.isAdmin = false;
-              context.vxNav.push(Uri.parse(ScreeNames.findEvent));
+              Navigator.pop(context);
             },
             horizontalPadding: MediaQuery.of(context).size.height * 0.025,
-            text: 'Sign In',
+            text: 'Add',
           )
         ],
       ),
     );
   }
+    
 }

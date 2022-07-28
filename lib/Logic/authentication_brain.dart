@@ -1,3 +1,3 @@
 class Authentication {
-  static bool isAdmin = true;
+  static bool isAdmin = false;
 }
